@@ -1,7 +1,6 @@
 name: Comment before Vercel
 on:
-  pull_request:
-    types: [opened, synchronize]   # à l'ouverture ou quand on pousse de nouveaux commits
+  [push]
 
 jobs:
   add-pr-comment:
