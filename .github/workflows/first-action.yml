@@ -1,4 +1,4 @@
-name: CI & Deploy with Vercel
+name: CI & Deploy with Vercel + Pre-Check
 
 on:
   push:
