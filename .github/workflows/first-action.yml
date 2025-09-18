@@ -1,0 +1,20 @@
+name: Comment before Vercel
+on:
+  pull_request:
+    types: [opened, synchronize]   # à l'ouverture ou quand on pousse de nouveaux commits
+
+jobs:
+  add-pr-comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add comment on PR
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: "🚀 CI en cours : vérification du code avant le déploiement Vercel…"
+            })
